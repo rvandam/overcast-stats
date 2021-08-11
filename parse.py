@@ -9,6 +9,7 @@ def parseXML(xmlfile):
     counts = {}
     for item in root.findall('./body/outline/outline[@type="rss"]'):
         print(item.attrib['text'])
+        print(item.attrib)
         stats = defaultdict(int)
         if (len(item) > 0):
             for episode in item.findall('outline[@type="podcast-episode"]'):
@@ -19,6 +20,7 @@ def parseXML(xmlfile):
                     except Exception:
                         pass
         print(stats)
+        break
 #                print(item[0].tag, item[0].attrib)
 #        print(item.tag, item.attrib)
 #    for child in root:
